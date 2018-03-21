@@ -4,7 +4,8 @@
     <view class='header'>
       <!--定位-->
       <view class='loaction selfLoaction'>
-        定位部分
+        <image src='../../images/foot/add.png' mode='aspectFit' style='width:44rpx;height:44rpx'></image>
+        {{loactionString}}
       </view>
       <!--搜索框-->
       <view class='seach'>
@@ -20,7 +21,7 @@
               interval="5000" 
               duration="500"
               style='height:200rpx'>
-        <block wx:for="{{imgUrls}}">
+        <block wx:for="{{imgUrls}}" wx:key='index' wx:for-item="item">
           <swiper-item>
             <image src="{{item}}" 
             class="slide-image" />
@@ -29,19 +30,37 @@
       </swiper>
     </view>
     <!--滑动分类选择-->
-    <view class='banner'>
+    <view class='varieties'>
       <swiper indicator-dots="true"
-              autoplay="false" 
-              interval="5000" 
               duration="500"
-              style='height:200rpx'>
-        <block wx:for="{{imgUrls}}">
-          <swiper-item>
-            <image src="{{item}}" 
-            class="slide-image" />
+              style='height:340rpx'>
+        <block wx:for="{{varietiesImage}}" wx:key='index' wx:for-item="macroVarieties">
+          <swiper-item class='varietiy'>
+            <block wx:for="{{macroVarieties}}" wx:key='index' wx:for-item="microVarietiy">
+              <view class='varietiyItem'>
+                <image src="{{microVarietiy.url}}" mode='aspectFit' style='height:100rpx;width:auto' />
+                {{microVarietiy.title}}
+              </view>
+            </block>
           </swiper-item>
         </block>
       </swiper>
+    </view>
+    <!--商家-->
+    <view class='merchants'>
+      —— 推荐商家 ——
+      <!--block wx:for="{{}}" wx:key='index' wx:for-item=""-->
+         <view class='merchant'>
+            <view class='merchantImage'>
+               <image style='width:100%;max-height:200rpx;border:2rpx'  
+                       mode='aspectFit' src='../../images/maerchans/2.png'>
+               </image>
+            </view>
+            
+            <view class='merchantInfo'>
+            ceshi shice</view>
+         </view>
+      <!--/block-->
     </view>
     
 

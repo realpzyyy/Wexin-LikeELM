@@ -1,13 +1,5 @@
 /**index.wxss**/
 
-@font-face {
-  font-family: 'iconfont';  /* project id 598744 */
-  src: url('//at.alicdn.com/t/font_598744_m17dyc02p6cg14i.eot');
-  src: url('//at.alicdn.com/t/font_598744_m17dyc02p6cg14i.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_598744_m17dyc02p6cg14i.woff') format('woff'),
-  url('//at.alicdn.com/t/font_598744_m17dyc02p6cg14i.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_598744_m17dyc02p6cg14i.svg#iconfont') format('svg');
-}
 .header{
   display: flex;
   flex-direction: column;
@@ -23,6 +15,7 @@
 }
 .selfLoaction{
   align-self: flex-start;
+  align-items:flex-end; 
   margin-left: 5%;
 }
 .input{
@@ -43,13 +36,45 @@
   width: 100%;
   max-height: 200rpx;
 }
+.varieties{
+  width: 100%;
+  max-height: 340rpx;
+  background-color: #ffffff;
+}
+.varietiy{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: #ffffff;
+}
+.varietiyItem{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 150rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666666;
+}
 
-.iconfont{
-  font-family:"iconfont";
-  font-size:16rpx;
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale; 
-  padding-left:20rpx
+.merchants{
+  width: 100%;
+  text-align: center;
+}
+.merchant{
+  display: flex; 
+  flex-flow: row nowrap;
+  width: 100%;
+  /*max-height:300rpx;*/
+  background-color: #ffffff;
+}
+.merchantImage{
+  width: 20%;
+  margin-left: 20rpx;
+  max-height:200rpx;
+}
+.merchantInfo{
+  margin-left: 20rpx;
 }

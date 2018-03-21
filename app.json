@@ -7,9 +7,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#008eff",
     "navigationBarTitleText": "Zoey's wechart demo",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"#fff"
   },
   "tabBar": {
     "color": "#6e6d6b",
@@ -21,19 +21,19 @@
       "pagePath": "pages/index/index",
       "text": "首页",
       "iconPath": "images/foot/home.png",
-      "selectedIconPath": "images/foot/home.png"
+      "selectedIconPath": "images/foot/home2.png"
     },
     {
       "pagePath": "pages/find/find",
       "text": "发现",
       "iconPath": "images/foot/find.png",
-      "selectedIconPath": "images/foot/find.png"
+      "selectedIconPath": "images/foot/find2.png"
     },
     {
       "pagePath": "pages/order/order",
       "text": "订单",
       "iconPath": "images/foot/order.png",
-      "selectedIconPath": "images/foot/order.png"
+      "selectedIconPath": "images/foot/order2.png"
     },
     {
       "pagePath": "pages/user/user",

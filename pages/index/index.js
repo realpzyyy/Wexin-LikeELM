@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
+// 引用百度地图微信小程序JSAPI模块 
+var bmap = require('../../libs/bmap-wx.js')
 
 Page({
   data: {
@@ -10,9 +12,33 @@ Page({
       '../../images/banner/banner3.jpg',
       '../../images/banner/banner4.jpg'
     ],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    varietiesImage:[
+      [
+        { title: '种类一', url: '../../images/varieties/1.jpeg' },
+        { title: '种类二', url: '../../images/varieties/2.jpeg' },
+        { title: '种类三', url: '../../images/varieties/3.jpeg' },
+        { title: '种类四', url: '../../images/varieties/4.jpeg' },
+        { title: '种类五', url: '../../images/varieties/5.jpeg' },
+        { title: '种类六', url: '../../images/varieties/6.jpeg' },
+        { title: '种类七', url: '../../images/varieties/7.jpeg' },
+        { title: '种类八', url: '../../images/varieties/8.jpeg' },
+        { title: '种类九', url: '../../images/varieties/9.jpeg' },
+        { title: '种类十', url: '../../images/varieties/10.jpeg' }
+      ],
+      [
+        { title: '种类十一', url: '../../images/varieties/1.jpeg' },
+        { title: '种类十二', url: '../../images/varieties/2.jpeg' },
+        { title: '种类十三', url: '../../images/varieties/8.jpeg' },
+        { title: '种类十四', url: '../../images/varieties/9.jpeg' },
+        { title: '种类十五', url: '../../images/varieties/10.jpeg' }
+      ]
+    ],
+    userInfo       : {},
+    hasUserInfo    : false,
+    canIUse        : wx.canIUse('button.open-type.getUserInfo'),
+    latitude       :0,
+    longitude      :0,
+    loactionString :''
   },
   //事件处理函数
   bindViewTap: function(event) {
@@ -20,7 +46,41 @@ Page({
       url: event.target.dataset.url
     })
   },
+  
   onLoad: function () {
+
+    var that = this;
+    var BMap = new bmap.BMapWX({
+      ak: 'TtDsogG1RRzboHL02oEdU33Xd8iXlLkB'
+    });
+    
+    //请求百度地图api并返回模糊位置
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        that.setData({
+           latitude : res.latitude  ,//经度
+           longitude : res.longitude//纬度
+        })
+        BMap.regeocoding({
+          location: that.data.latitude + ',' + that.data.longitude,
+          success: function (res) { 
+            that.setData({
+              loactionString: res.originalData.result.formatted_address
+            })
+          },
+          fail: function () {
+            wx.showToast({
+              title: '请检查位置服务是否开启',
+            })
+           },
+        });
+      },
+      fail:function(){
+        console.log('小程序得到坐标失败')
+      }
+    })
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -48,7 +108,7 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
