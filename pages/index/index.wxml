@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container">
+    <!--定位与搜索框-->
+    <view class='header'>
+      <!--定位-->
+      <view class='loaction selfLoaction'>
+        定位部分
+      </view>
+      <!--搜索框-->
+      <view class='seach'>
+        <input type="text" class="input" 
+        placeholder-class=''
+        placeholder="搜索商家、商品名称"/>
+      </view>
+    </view>
+    <!--活动banner-->
+    <view class='banner'>
+      <swiper indicator-dots="true"
+              autoplay="true" 
+              interval="5000" 
+              duration="500"
+              style='height:200rpx'>
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" 
+            class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--滑动分类选择-->
+    <view class='banner'>
+      <swiper indicator-dots="true"
+              autoplay="false" 
+              interval="5000" 
+              duration="500"
+              style='height:200rpx'>
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" 
+            class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    
+
+</view>
+ 
